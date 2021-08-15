@@ -47,4 +47,7 @@ def create_app(test_config=None):
     # the tutorial the blog will be the main index
     app.add_url_rule("/", endpoint="index")
 
+    from flaskr import factory_data
+    app.register_blueprint(factory_data.bp)
+
     return app

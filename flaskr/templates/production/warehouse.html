@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    {% if is_existing_db %}
+        <div class="container">
+            <div class="row"><h3> Mặt Hàng </h3></div>
+            <div class="row">
+                <div class="col-2"> MSMH</div>
+                <div class="col-3"> Tên Mặt Hàng</div>
+                <div class="col-3"> Mô tả</div>
+                <div class="col-2"> Đơn</div>
+                <div class="col-2"> Mã số loại</div>
+            </div>
+            {% for g in fetching_data %}
+                <div class="row">
+                    <div class="col-2"> {{ g['MSMH'] }}</div>
+                    <div class="col-3"> {{ g['TENMH'] }}</div>
+                    <div class="col-3">{{ g['MOTA'] }}</div>
+                    <div class="col-2"> {{ g['MATHANGDVT'] }}</div>
+                    <div class="col-2"> {{ g['MSLOAI'] }}</div>
+                    {% if not loop.last %}
+                        <hr>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+{% endblock %}
+</body>
+</html>
