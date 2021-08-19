@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="main_body">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark header-page">
     <a class="navbar-brand" href="{{ url_for('blog.index') }}"> Factory</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,19 +35,22 @@
     </div>
 
 
-
 </nav>
-
-
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block content %}{% endblock %}
+<section class="main_content">
+{#  <header>#}
+{#    {% block header %}{% endblock %}#}
+{#  </header>#}
+{#  {% for message in get_flashed_messages() %}#}
+{#    <div class="flash">{{ message }}</div>#}
+{#  {% endfor %}#}
+  {% block content %}{% endblock %}
+    {% block add  %}{% endblock %}
+    {% block add_newtable  %}{% endblock %}
 </section>
+
+{#<section class="main_content">#}
+{#    {% block content %}{% endblock %}#}
+{#</section>#}
 
 
 </body>

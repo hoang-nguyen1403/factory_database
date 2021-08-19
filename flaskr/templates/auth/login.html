@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 
 </head>
 <body>
-    {% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}Log In{% endblock %}</h1>
-{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-  </form>
-{% endblock %}
+    <form method="post" class="border rounded-2 container form-edited" >
+        <div class="row">
+            <div class="align-self-center col">
+                {% block header %}
+                    <h1>{% block title %}Log In{% endblock %}</h1>
+                {% endblock %}
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col">
+                <label for="username" class="form-label">Username</label>
+            </div>
+            <div class="col">
+                <input name="username" id="username" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="password" class="from-label">Password</label>
+            </div>
+            <div class="col">
+                <input type="password" name="password" id="password" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <input type="submit" value="Log In" class="btn btn-primary">
+            </div>
+            <div class="col-2"> </div>
+            <div class="col-2">
+                    {% for message in get_flashed_messages() %}
+                        <p style="color: red; width: 250px; line-height: 34px" > {{ message }}</p>
+                    {% endfor %}
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
 </body>
 </html>

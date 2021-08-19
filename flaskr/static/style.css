@@ -25,3 +25,32 @@ body { max-width: 100%; margin: 0 auto; background: white; font-family: 'Noto Sa
 /*.content textarea { min-height: 12em; resize: vertical; }*/
 /*input.danger { color: #cc2f2e; }*/
 /*input[type=submit] { align-self: start; min-width: 10em; }*/
+
+.form-edited{
+    width: 30%;
+    height: 20%;
+    padding: 2%;
+    background-color: whitesmoke;
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+h4{
+    color: white;
+}
+.main_body{
+    background-image: url("dimitry-anikin-3YZJ0ulbZho-unsplash.jpg");
+     background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+.main_content{
+    height: 80%;
+}
+
+.header-page{
+    height: 10%;
+}
+
+.table_adjustment{
+    width: 50%;
+}
