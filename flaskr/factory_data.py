@@ -87,3 +87,30 @@ def them_mathang():
             return redirect(url_for("production.get_goods_data"))
     else:
         return render_template("production/addnew.html")
+
+@bp.route("/edit", methods=("GET", "POST"))
+@login_required
+def sua_mathang():
+    if request.method == "POST":
+        msmh = request.form["MSMH"]
+        TENMH = request.form["TENMH"]
+        MOTA = request.form["MOTA"]
+        MATHANGDVT = request.form["MATHANGDVT"]
+        MSLOAI = request.form["MSLOAI"]
+
+        error = None
+
+        if not msmh:
+            error = "MSMH is required."
+
+        if error is not None:
+            flash(error)
+        else:
+            conn = get_db()
+            print(f"UPDATE MATHANG SET TENMH = '{TENMH}',MOTA= '{MOTA}', MATHANGDVT = '{MATHANGDVT}', MSLOAI = '{MSLOAI}' WHERE msmh = '{msmh}'")
+            conn.execute(f"UPDATE MATHANG SET TENMH = '{TENMH}',MOTA= '{MOTA}', MATHANGDVT = '{MATHANGDVT}', MSLOAI = '{MSLOAI}' WHERE msmh = '{msmh}'")
+            conn.commit()
+            conn.close()
+            return redirect(url_for("production.get_goods_data"))
+    else:
+        return render_template("production/edit.html")

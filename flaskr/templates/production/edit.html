@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+    {% extends "base.html" %}
+    {% block edit %}
+        <div class="container">
+        <div class="row" id="edit">
+                <hr>
+                <table class="table table-striped table-hover table-bordered table-light">
+                    <thead>
+                    <tr>
+                        <th scope="col" > MSMH</th>
+                        <th scope="col">Ten Mat Hang</th>
+                        <th scope="col">Mota</th>
+                        <th scope="col">Don vi</th>
+                        <th scope="col">Ma so Loai</th>
+                        <th scope="col"> action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                    <form method="post">
+                        <td><input name="MSMH" id="MSMH" class="form-control" name="MSMH" id="MSMH" required></td>
+                        <td><input name="TENMH" id="TENMH" class="form-control" name="TENMH" id="TENMH" required></td>
+                        <td><input name="MOTA" id="MOTA" class="form-control" name="MOTA" id="MOTA" required></td>
+                        <td><input name="MATHANGDVT" id="MATHANGDVT" class="form-control" name="MATHANGDVT" id="MATHANGDVT" required></td>
+                        <td><input name="MSLOAI" id="MSLOAI" class="form-control" name="MSLOAI" id="MSLOAI" required></td>
+                        <td><input type="submit" value="Edit" onclick="return confirm('Are you sure?');">
+                        </td>
+                    </form>
+
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    {% endblock %}
+</html>
